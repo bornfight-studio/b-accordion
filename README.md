@@ -3,7 +3,7 @@
 </a>
 
 # b-accordion [[all b- libs](https://github.com/bornfight/b-lib-archive/)]
-> Bornfight frontend micro for accordion type interactions/elements
+> Bornfight frontend lib for accordion type interactions/elements
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-accordion?style=flat-square)
 ![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-accordion?style=flat-square)
