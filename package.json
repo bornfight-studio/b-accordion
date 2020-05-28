@@ -1,6 +1,6 @@
 {
-  "name": "c-accordion",
-  "version": "1.0.0",
+  "name": "@bornfight/c-accordion",
+  "version": "1.0.1",
   "description": "Bornfight frontend lib for accordion type elements",
   "author": "Bornfight FE team",
   "email": "frontend@bornfight.com",
