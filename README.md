@@ -2,71 +2,146 @@
 <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight" alt="Bornfight">
 </a>
 
-# b-lib-boilerplate [[all b- libs](https://github.com/bornfight/b-lib-archive/)]
+# b-accordion [[all b- libs](https://github.com/bornfight/b-lib-archive/)]
 > Bornfight frontend project based on gulp, es6 and scss
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-creative?style=flat-square)
-![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-creative?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/bornfight/b-creative?style=flat-square)
-![GitHub](https://img.shields.io/github/license/bornfight/b-creative?style=flat-square)
-
-##### ⚠ IMPORTANT NOTICE - module not yet published on npm ⚠
-Change:
-- package.json > "name": "c-lib-boilerplate"
-- package.json > "description": "...."
-- package.json > "main": "src/js/LibName.js"
-- LibName.js > replace with your lib name in places where it is used
-- add keywords to package.json
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-accordion?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-accordion?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight/b-accordion?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight/b-accordion?style=flat-square)
 
 ## 📦 Getting Started
 
-- install `b-lib` trough __npm__ or pull ti from git
+Dependency: `gsap`
+
+- install `b-accordion` trough __npm__ or pull ti from git
 
 ```
-npm i @bornfight/b-lib
+npm i @bornfight/b-accordion
 ```
 
-- include b-lib to your __JS__ and __SCSS__ after running __npm install__
+- include b-accordion to your __JS__ and __SCSS__ after running __npm install__
 
 ## 🔨️ Usage 
+
 ###### JS
 ``` JS
-import LibName from "@bornfight/b-lib";
+import Accordion from "@bornfight/b-accordion";
 ```
 
 ###### SCSS
 ``` SCSS
-@import "~b-lib/src/scss/b-lib.scss";
+@import "~@bornfight/b-accordion/src/scss/b-accordion.scss";
+```
+
+* scss import is not mandatory but following code must be included
+```CSS
+.js-accordion-panel {
+    backface-visibility: hidden;
+    overflow: hidden;
+    height: 0;
+}
 ```
 
 ##### HTML markup
 
+Mono accordion with single item header as hit area (only one item can be active and only item header will trigger open/close). Main wrapper "js-accordion" need to have "is-mono" class
+
 ```HTML
-<p class="b-lib-class">
-    Lib Element
-</p>
+<div class="js-accordion is-mono">
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 1
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            <!-- CONTENT -->
+            ...
+        </div>
+    </div>
+
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 2
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+           <!-- CONTENT -->
+            ...
+        </div>
+    </div>
+</div>
 ```
 
-##### Basic usage tips
-- element needs to have ...
-- ...
+Single item header as hit area (only header will trigger open/close)
 
-##### Advanced usage
-- ...
+```HTML
+<div class="js-accordion">
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 1
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            <!-- CONTENT -->
+            ...
+        </div>
+    </div>
+
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 2
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            <!-- CONTENT -->
+            ...
+        </div>
+    </div>
+</div>
+```
+
+- Single item full body as hit area (item can be opened and closed wherever you click)
+
+```HTML
+<div class="js-accordion">
+    <div class="js-accordion-single js-accordion-header">
+        <div>
+            <p>
+                Accordion header title 1
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            <!-- CONTENT -->
+            ...
+        </div>
+    </div>
+
+    <div class="js-accordion-single js-accordion-header">
+        <div>
+            <p>
+                Accordion header title 2
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            <!-- CONTENT -->
+            ...
+        </div>
+    </div>
+</div>
+```
      
 ## 💎 Customization
-
-## ✅ Properties
-
-Option | Type | Default | Example | Description
------- | ---- | ------- | ------- | -----------
-parentClass | string | element parent | 'js-parent' | Element will be wrapped and moved to that parent and not to initial parent element 
+- use your imagination
 
 ## 🚀 Useful to know
 
-1. ...
-2. ...
-3. ...
+1. any element inside `js-accordion-single` can be trigger for open/close. It just needs to have `js-accordion-header` class
+2. only one element inside `js-accordion-single` can have `js-accordion-header` class
    
 ### 📦 Contribute
 

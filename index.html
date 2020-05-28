@@ -2,19 +2,133 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lib name</title>
+    <title>Accordion</title>
     <link rel="stylesheet" href="dist/style.css">
 
     <script type="module">
-        import LibName from "./src/js/LibName.js";
+        import Accordion from "./src/js/Accordion.js";
 
-        new LibName("passed string");
+        new Accordion();
     </script>
+
+    <style>
+        .js-accordion {
+            border: 1px solid;
+        }
+
+        .js-accordion-header {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <a href="http://www.bornfight.com">
     <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight"
          alt="Bornfight">
 </a>
+
+<h1>Mono with slingle item header as hit area</h1>
+<p>
+    <strong>
+        (main wrapper "js-accordion" have "is-mono" class)
+    </strong>
+</p>
+<div class="js-accordion is-mono">
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 1
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
+            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
+            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
+            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+        </div>
+    </div>
+
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 2
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
+            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
+            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
+            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<h1>Slingle item header as hit area</h1>
+<div class="js-accordion">
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 1
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
+            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
+            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
+            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+        </div>
+    </div>
+
+    <div class="js-accordion-single">
+        <div class="js-accordion-header">
+            <p>
+                Accordion header title 2
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
+            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
+            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
+            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<h1>Slingle item full body as hit area</h1>
+<div class="js-accordion">
+    <div class="js-accordion-single js-accordion-header">
+        <div>
+            <p>
+                Accordion header title 1
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
+            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
+            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
+            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+        </div>
+    </div>
+
+    <div class="js-accordion-single js-accordion-header">
+        <div>
+            <p>
+                Accordion header title 2
+            </p>
+        </div>
+        <div class="js-accordion-panel">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
+            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
+            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
+            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+        </div>
+    </div>
+</div>
 </body>
 </html>
