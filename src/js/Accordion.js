@@ -1,12 +1,12 @@
 /**
- * b-accordion v 1.0.5
+ * b-accordion v 1.0.6
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
  * Year: 2020
  */
 
-import gsap from "../../node_modules/gsap/index.js";
+import gsap from "gsap";
 
 export default  class Accordion {
     constructor() {
