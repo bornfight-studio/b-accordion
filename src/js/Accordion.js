@@ -10,7 +10,6 @@ import gsap from "gsap";
 
 export default  class Accordion {
     constructor() {
-        console.log(123);
         this.accordion = document.querySelectorAll(".js-accordion");
 
         if (this.accordion.length > 0) {
@@ -31,6 +30,8 @@ export default  class Accordion {
      * @param {boolean} mono
      */
     initAccordion(accordion, mono) {
+        console.log("Accordion instance init()");
+
         const accordionSingles = accordion.querySelectorAll(".js-accordion-single");
 
         accordionSingles.forEach(accordionSingle => {
