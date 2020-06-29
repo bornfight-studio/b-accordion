@@ -8,7 +8,7 @@
 
 import gsap from "gsap";
 
-export default  class Accordion {
+export default class Accordion {
     constructor() {
         this.accordion = document.querySelectorAll(".js-accordion");
 
@@ -85,6 +85,7 @@ export default  class Accordion {
      */
     closeAccordion(accordionHeader, accordionContent) {
         accordionHeader.classList.remove("is-opened");
+        accordionHeader.parentNode.classList.remove("is-opened");
 
         gsap.to(accordionContent, {
             duration: 0.4,
@@ -117,6 +118,7 @@ export default  class Accordion {
                 }
 
                 accordionHeaderInactive.classList.remove("is-opened");
+                accordionHeaderInactive.parentNode.classList.remove("is-opened");
 
                 gsap.to(accordionContentInactive, {
                     duration: 0.4,
@@ -127,6 +129,7 @@ export default  class Accordion {
         }
 
         accordionHeader.classList.add("is-opened");
+        accordionHeader.parentNode.classList.add("is-opened");
         let height = 0;
 
         gsap.set(accordionContent, {
