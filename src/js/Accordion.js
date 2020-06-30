@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.7
+ * b-accordion v 1.0.8
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
@@ -9,9 +9,8 @@
 import gsap from "gsap";
 
 export default class Accordion {
-    constructor() {
-        this.accordion = document.querySelectorAll(".js-accordion");
-
+    constructor(jsClass = ".js-accordion") {
+        this.accordion = document.querySelectorAll(jsClass);
         if (this.accordion.length > 0) {
             this.accordion.forEach(accordion => {
                 let mono = false;
