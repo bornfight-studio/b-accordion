@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.8
+ * b-accordion v 1.0.9
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
@@ -91,7 +91,7 @@ export default class Accordion {
         gsap.to(accordionContent, {
             duration: 0.4,
             height: 0,
-            ease: "power3.ease-in"
+            ease: "power3.in"
         });
     }
 
@@ -126,7 +126,7 @@ export default class Accordion {
                 gsap.to(accordionContentInactive, {
                     duration: 0.4,
                     height: 0,
-                    ease: "power3.ease-in"
+                    ease: "power3.in"
                 });
             });
         }
@@ -148,7 +148,7 @@ export default class Accordion {
                         gsap.to(accordionContent, {
                             duration: 0.5,
                             height: height,
-                            ease: "power3.ease-out",
+                            ease: "power3.out",
                             onComplete: () => {
                                 accordionContent.style.height = "auto";
                             }
