@@ -32,7 +32,7 @@ import Accordion from "@bornfight/b-accordion";
 
 ###### SCSS
 ``` SCSS
-@import "~@bornfight/b-accordion/src/scss/b-accordion.scss";
+@import "~@bornfight/b-accordion/src/scss/style.scss";
 ```
 
 * scss import is not mandatory but following code must be included
