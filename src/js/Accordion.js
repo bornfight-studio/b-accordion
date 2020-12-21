@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.9
+ * b-accordion v 1.0.10
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
@@ -106,16 +106,16 @@ export default class Accordion {
         if (mono) {
             const accordionSingles = accordion.querySelectorAll(".js-accordion-single");
 
-            accordionSingles.forEach(accordionSingle => {
-                const accordionHeaderInactive = accordionSingle.querySelector(
+            for (let i = 0; i < accordionSingles.length; i++) {
+                const accordionHeaderInactive = accordionSingles[i].querySelector(
                     ".js-accordion-header"
                 );
-                const accordionContentInactive = accordionSingle.querySelector(
+                const accordionContentInactive = accordionSingles[i].querySelector(
                     ".js-accordion-panel"
                 );
 
                 if (accordionHeader === accordionHeaderInactive) {
-                    return;
+                    continue;
                 }
 
                 accordionHeaderInactive.classList.remove("is-opened");
@@ -128,7 +128,7 @@ export default class Accordion {
                     height: 0,
                     ease: "power3.in"
                 });
-            });
+            }
         }
 
         accordionHeader.classList.add("is-opened");
