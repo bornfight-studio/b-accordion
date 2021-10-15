@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>Accordion</title>
-    <link rel="stylesheet" href="dist/style.css">
+    <link rel="stylesheet" href="dist/style.css"/>
 
     <script type="module">
         // for working index.html "import gsap from "../../node_modules/gsap/index.js";" needs to be replaced inside "src/js/Accordion.js"
         import Accordion from "./src/js/Accordion.js";
 
-        new Accordion();
+        new Accordion(".js-accordion", {
+            openDuration: 1,
+            openDelay: 0.5,
+            openingEase: "bounce.out",
+        });
     </script>
 
     <style>
@@ -24,8 +28,12 @@
 </head>
 <body>
 <a href="http://www.bornfight.com">
-    <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight"
-         alt="Bornfight">
+    <img
+            width="84px"
+            src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?"
+            title="Bornfight"
+            alt="Bornfight"
+    />
 </a>
 
 <h1>Mono with slingle item header as hit area</h1>
@@ -42,10 +50,12 @@
             </p>
         </div>
         <div class="js-accordion-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
-            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
-            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
-            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor
+            ligula enim, nec finibus dui pretium in. Curabitur sit amet vulputate
+            leo. Maecenas vulputate velit et dui pellentesque lacinia.
+            Pellentesque et scelerisque nisi. Suspendisse nec elementum mauris.
+            Sed vitae est felis. Etiam aliquam efficitur massa id imperdiet. Donec
+            sed feugiat lorem. Sed vel facilisis diam.
         </div>
     </div>
 
@@ -56,16 +66,18 @@
             </p>
         </div>
         <div class="js-accordion-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
-            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
-            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
-            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor
+            ligula enim, nec finibus dui pretium in. Curabitur sit amet vulputate
+            leo. Maecenas vulputate velit et dui pellentesque lacinia.
+            Pellentesque et scelerisque nisi. Suspendisse nec elementum mauris.
+            Sed vitae est felis. Etiam aliquam efficitur massa id imperdiet. Donec
+            sed feugiat lorem. Sed vel facilisis diam.
         </div>
     </div>
 </div>
 
-<br>
-<br>
+<br/>
+<br/>
 
 <h1>Slingle item header as hit area</h1>
 <div class="js-accordion">
@@ -76,10 +88,12 @@
             </p>
         </div>
         <div class="js-accordion-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
-            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
-            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
-            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor
+            ligula enim, nec finibus dui pretium in. Curabitur sit amet vulputate
+            leo. Maecenas vulputate velit et dui pellentesque lacinia.
+            Pellentesque et scelerisque nisi. Suspendisse nec elementum mauris.
+            Sed vitae est felis. Etiam aliquam efficitur massa id imperdiet. Donec
+            sed feugiat lorem. Sed vel facilisis diam.
         </div>
     </div>
 
@@ -90,16 +104,18 @@
             </p>
         </div>
         <div class="js-accordion-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
-            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
-            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
-            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor
+            ligula enim, nec finibus dui pretium in. Curabitur sit amet vulputate
+            leo. Maecenas vulputate velit et dui pellentesque lacinia.
+            Pellentesque et scelerisque nisi. Suspendisse nec elementum mauris.
+            Sed vitae est felis. Etiam aliquam efficitur massa id imperdiet. Donec
+            sed feugiat lorem. Sed vel facilisis diam.
         </div>
     </div>
 </div>
 
-<br>
-<br>
+<br/>
+<br/>
 
 <h1>Slingle item full body as hit area</h1>
 <div class="js-accordion">
@@ -110,10 +126,12 @@
             </p>
         </div>
         <div class="js-accordion-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
-            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
-            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
-            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor
+            ligula enim, nec finibus dui pretium in. Curabitur sit amet vulputate
+            leo. Maecenas vulputate velit et dui pellentesque lacinia.
+            Pellentesque et scelerisque nisi. Suspendisse nec elementum mauris.
+            Sed vitae est felis. Etiam aliquam efficitur massa id imperdiet. Donec
+            sed feugiat lorem. Sed vel facilisis diam.
         </div>
     </div>
 
@@ -124,10 +142,12 @@
             </p>
         </div>
         <div class="js-accordion-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor ligula enim, nec finibus dui pretium
-            in. Curabitur sit amet vulputate leo. Maecenas vulputate velit et dui pellentesque lacinia. Pellentesque et
-            scelerisque nisi. Suspendisse nec elementum mauris. Sed vitae est felis. Etiam aliquam efficitur massa id
-            imperdiet. Donec sed feugiat lorem. Sed vel facilisis diam.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor
+            ligula enim, nec finibus dui pretium in. Curabitur sit amet vulputate
+            leo. Maecenas vulputate velit et dui pellentesque lacinia.
+            Pellentesque et scelerisque nisi. Suspendisse nec elementum mauris.
+            Sed vitae est felis. Etiam aliquam efficitur massa id imperdiet. Donec
+            sed feugiat lorem. Sed vel facilisis diam.
         </div>
     </div>
 </div>

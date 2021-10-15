@@ -1,1 +1,7 @@
-.js-accordion-panel{-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden;height:0}
+.js-accordion-panel {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  overflow: hidden;
+  height: 0; }
+
+/*# sourceMappingURL=style.css.map */

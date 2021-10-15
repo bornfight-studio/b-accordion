@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.10
+ * b-accordion v 1.0.11
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
@@ -9,10 +9,38 @@
 import gsap from "gsap";
 
 export default class Accordion {
-    constructor(jsClass = ".js-accordion") {
+    /**
+     * @param {string} [jsClass]
+     * @param options
+     * @param {string} [options.openingEase]
+     * @param {string} [options.closingEase]
+     * @param {number} [options.openDuration]
+     * @param {number} [options.closeDuration]
+     * @param {number} [options.openDelay]
+     * @param {number} [options.closeDelay]
+     */
+    constructor(jsClass = ".js-accordion", options = {}) {
+        let _defaults = {
+            openingEase: "power4.out",
+            closingEase: "power4.in",
+            openDuration: 0.5,
+            closeDuration: 0.3,
+            openDelay: 0,
+            closeDelay: 0,
+        };
+
+        this.defaults = Object.assign({}, _defaults, options);
+
+        this.openingEase = this.defaults.openingEase;
+        this.closingEase = this.defaults.closingEase;
+        this.openDuration = this.defaults.openDuration;
+        this.closeDuration = this.defaults.closeDuration;
+        this.openDelay = this.defaults.openDelay;
+        this.closeDelay = this.defaults.closeDelay;
+
         this.accordion = document.querySelectorAll(jsClass);
         if (this.accordion.length > 0) {
-            this.accordion.forEach(accordion => {
+            this.accordion.forEach((accordion) => {
                 let mono = false;
                 if (accordion.classList.contains("is-mono")) {
                     mono = true;
@@ -33,7 +61,7 @@ export default class Accordion {
 
         const accordionSingles = accordion.querySelectorAll(".js-accordion-single");
 
-        accordionSingles.forEach(accordionSingle => {
+        accordionSingles.forEach((accordionSingle) => {
             this.accordionController(accordionSingle, accordion, mono);
         });
     }
@@ -55,17 +83,19 @@ export default class Accordion {
             throw new Error("'js-accordion-header' missing!");
         }
 
-        const accordionContent = accordionSingle.querySelector(".js-accordion-panel");
+        const accordionContent = accordionSingle.querySelector(
+            ".js-accordion-panel"
+        );
 
         if (accordionContent == null) {
             throw new Error("'js-accordion-panel' missing!");
         }
 
         gsap.set(accordionContent, {
-            height: 0
+            height: 0,
         });
 
-        accordionHeader.addEventListener("click", ev => {
+        accordionHeader.addEventListener("click", (ev) => {
             ev.preventDefault();
 
             if (ev.currentTarget.classList.contains("is-opened")) {
@@ -89,9 +119,10 @@ export default class Accordion {
         }
 
         gsap.to(accordionContent, {
-            duration: 0.4,
+            duration: this.closeDuration,
             height: 0,
-            ease: "power3.in"
+            delay: this.closeDelay,
+            ease: this.closingEase,
         });
     }
 
@@ -104,7 +135,9 @@ export default class Accordion {
      */
     openAccordion(accordionHeader, accordionContent, accordion, mono) {
         if (mono) {
-            const accordionSingles = accordion.querySelectorAll(".js-accordion-single");
+            const accordionSingles = accordion.querySelectorAll(
+                ".js-accordion-single"
+            );
 
             for (let i = 0; i < accordionSingles.length; i++) {
                 const accordionHeaderInactive = accordionSingles[i].querySelector(
@@ -119,14 +152,17 @@ export default class Accordion {
                 }
 
                 accordionHeaderInactive.classList.remove("is-opened");
-                if (accordionHeader.parentNode.classList.contains("js-accordion-single")) {
+                if (
+                    accordionHeader.parentNode.classList.contains("js-accordion-single")
+                ) {
                     accordionHeaderInactive.parentNode.classList.remove("is-opened");
                 }
 
                 gsap.to(accordionContentInactive, {
-                    duration: 0.4,
+                    duration: this.closeDuration,
                     height: 0,
-                    ease: "power3.in"
+                    delay: this.closeDelay,
+                    ease: this.closingEase,
                 });
             }
         }
@@ -146,17 +182,17 @@ export default class Accordion {
                     height: 0,
                     onComplete: () => {
                         gsap.to(accordionContent, {
-                            duration: 0.5,
+                            duration: this.openDuration,
                             height: height,
-                            ease: "power3.out",
+                            ease: this.openingEase,
+                            delay: this.openDelay,
                             onComplete: () => {
                                 accordionContent.style.height = "auto";
-                            }
+                            },
                         });
-                    }
+                    },
                 });
-            }
+            },
         });
     }
 }
-
