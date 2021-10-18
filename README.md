@@ -25,9 +25,26 @@ npm i @bornfight/b-accordion
 
 ## 🔨️ Usage 
 
-###### JS
+#### JS
 ``` JS
 import Accordion from "@bornfight/b-accordion";
+```
+
+###### Basic
+``` JS
+new Accordion();
+```
+
+###### Advanced
+``` JS
+new Accordion(".js-accordion", {
+    openDuration: 0.5,
+    openDelay: 0,
+    openingEase: "bounce.out",
+    closeDuration: 0.3,
+    closeDelay: 0,
+    closeingEase: "bounce.in",
+});
 ```
 
 ###### SCSS
@@ -135,6 +152,18 @@ Single item header as hit area (only header will trigger open/close)
     </div>
 </div>
 ```
+
+### Options
+
+Option | Type | Default | Example | Note
+------ | ---- | ------- | ------- | -----------
+jsClass | string | '.js-accordion' | '.my-accordion'
+openingEase | string | 'power4.out' | 'expo.out' | GSAP easing
+closingEase | string | 'power4.in' | 'expo.in' | GSAP easing
+openDuration | number | 0.5 | 0.2 | seconds
+closeDuration | number | 0.3 | 1 | seconds
+openDelay | number | 0 | 0.2 | seconds
+closeDelay | number | 0 | 0.2 | seconds
      
 ## 💎 Customization
 - use your imagination
