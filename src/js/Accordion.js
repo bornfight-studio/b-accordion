@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.11
+ * b-accordion v 1.0.12
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
@@ -99,7 +99,7 @@ export default class Accordion {
             ev.preventDefault();
 
             if (ev.currentTarget.classList.contains("is-opened")) {
-                this.closeAccordion(ev.currentTarget, accordionContent);
+                this.closeAccordion(ev.currentTarget, accordionContent, accordion);
                 return;
             }
 
@@ -111,8 +111,9 @@ export default class Accordion {
      *
      * @param {HTMLElement} accordionHeader
      * @param {HTMLElement} accordionContent
+     * @param {HTMLElement} accordion
      */
-    closeAccordion(accordionHeader, accordionContent) {
+    closeAccordion(accordionHeader, accordionContent, accordion) {
         accordionHeader.classList.remove("is-opened");
         if (accordionHeader.parentNode.classList.contains("js-accordion-single")) {
             accordionHeader.parentNode.classList.remove("is-opened");
@@ -124,6 +125,8 @@ export default class Accordion {
             delay: this.closeDelay,
             ease: this.closingEase,
         });
+
+        this.haveActive(accordion);
     }
 
     /**
@@ -163,6 +166,9 @@ export default class Accordion {
                     height: 0,
                     delay: this.closeDelay,
                     ease: this.closingEase,
+                    onComplete: () => {
+                        this.haveActive(accordion);
+                    }
                 });
             }
         }
@@ -194,5 +200,17 @@ export default class Accordion {
                 });
             },
         });
+    }
+
+    /**
+     *
+     * @param {HTMLElement} accordion
+     */
+    haveActive(accordion) {
+        if (accordion.querySelectorAll(".is-opened").length > 0) {
+            accordion.classList.add("have-active");
+        } else {
+            accordion.classList.remove("have-active");
+        }
     }
 }
