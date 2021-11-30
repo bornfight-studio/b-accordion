@@ -41,6 +41,9 @@ export default class Accordion {
         this.accordion = document.querySelectorAll(jsClass);
         if (this.accordion.length > 0) {
             this.accordion.forEach((accordion) => {
+                if (accordion.classList.contains("is-initialized")) {
+                    return;
+                }
                 let mono = false;
                 if (accordion.classList.contains("is-mono")) {
                     mono = true;
@@ -58,7 +61,7 @@ export default class Accordion {
      */
     initAccordion(accordion, mono) {
         console.log("Accordion instance init()");
-
+        accordion.classList.add("is-initialized");
         const accordionSingles = accordion.querySelectorAll(".js-accordion-single");
 
         accordionSingles.forEach((accordionSingle) => {
