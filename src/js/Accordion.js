@@ -18,6 +18,10 @@ export default class Accordion {
      * @param {number} [options.closeDuration]
      * @param {number} [options.openDelay]
      * @param {number} [options.closeDelay]
+     * @param {number} [options.onOpenStart]
+     * @param {number} [options.onCloseStart]
+     * @param {number} [options.onOpenComplete]
+     * @param {number} [options.onCloseComplete]
      */
     constructor(jsClass = ".js-accordion", options = {}) {
         let _defaults = {
@@ -27,6 +31,14 @@ export default class Accordion {
             closeDuration: 0.3,
             openDelay: 0,
             closeDelay: 0,
+            onOpenStart: () => {
+            },
+            onCloseStart: () => {
+            },
+            onOpenComplete: () => {
+            },
+            onCloseComplete: () => {
+            },
         };
 
         this.defaults = Object.assign({}, _defaults, options);
@@ -37,6 +49,10 @@ export default class Accordion {
         this.closeDuration = this.defaults.closeDuration;
         this.openDelay = this.defaults.openDelay;
         this.closeDelay = this.defaults.closeDelay;
+        this.onOpenStart = this.defaults.onOpenStart;
+        this.onCloseStart = this.defaults.onCloseStart;
+        this.onOpenComplete = this.defaults.onOpenComplete;
+        this.onCloseComplete = this.defaults.onCloseComplete;
 
         this.accordion = document.querySelectorAll(jsClass);
         if (this.accordion.length > 0) {
@@ -124,6 +140,12 @@ export default class Accordion {
             height: 0,
             delay: this.closeDelay,
             ease: this.closingEase,
+            onStart: () => {
+                this.onCloseStart(accordionHeader, accordionContent);
+            },
+            onComplete: () => {
+                this.onCloseComplete(accordionHeader, accordionContent);
+            },
         });
 
         this.haveActive(accordion);
@@ -161,15 +183,21 @@ export default class Accordion {
                     accordionHeaderInactive.parentNode.classList.remove("is-opened");
                 }
 
-                gsap.to(accordionContentInactive, {
-                    duration: this.closeDuration,
-                    height: 0,
-                    delay: this.closeDelay,
-                    ease: this.closingEase,
-                    onComplete: () => {
-                        this.haveActive(accordion);
-                    }
-                });
+                if (accordionContentInactive.style?.height !== "0px") {
+                    gsap.to(accordionContentInactive, {
+                        duration: this.closeDuration,
+                        height: 0,
+                        delay: this.closeDelay,
+                        ease: this.closingEase,
+                        onStart: () => {
+                            this.onCloseStart(accordionHeader, accordionContent);
+                        },
+                        onComplete: () => {
+                            this.haveActive(accordion);
+                            this.onCloseComplete(accordionHeader, accordionContent);
+                        },
+                    });
+                }
             }
         }
 
@@ -192,8 +220,12 @@ export default class Accordion {
                             height: height,
                             ease: this.openingEase,
                             delay: this.openDelay,
+                            onStart: () => {
+                                this.onOpenStart(accordionHeader, accordionContent);
+                            },
                             onComplete: () => {
                                 accordionContent.style.height = "auto";
+                                this.onOpenComplete(accordionHeader, accordionContent);
                             },
                         });
                     },

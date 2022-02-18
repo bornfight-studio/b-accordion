@@ -15,28 +15,31 @@
 
 Dependency: `gsap`
 
-- install `b-accordion` trough __npm__ or pull ti from git
+- install `b-accordion` trough **npm** or pull ti from git
 
 ```
 npm i @bornfight/b-accordion
 ```
 
-- include b-accordion to your __JS__ and __SCSS__ after running __npm install__
+- include b-accordion to your **JS** and **SCSS** after running **npm install**
 
-## 🔨️ Usage 
+## 🔨️ Usage
 
 #### JS
-``` JS
+
+```JS
 import Accordion from "@bornfight/b-accordion";
 ```
 
 ###### Basic
-``` JS
+
+```JS
 new Accordion();
 ```
 
 ###### Advanced
-``` JS
+
+```JS
 new Accordion(".js-accordion", {
     openDuration: 0.5,
     openDelay: 0,
@@ -44,15 +47,29 @@ new Accordion(".js-accordion", {
     closeDuration: 0.3,
     closeDelay: 0,
     closingEase: "bounce.in",
+    onCloseStart: (header, content) => {
+        console.log("close start", header, content);
+    },
+    onCloseComplete: (header, content) => {
+        console.log("close complete", header, content);
+    },
+    onOpenStart: (header, content) => {
+        console.log("open start", header, content);
+    },
+    onOpenComplete: (header, content) => {
+        console.log("open complete", header, content);
+    },
 });
 ```
 
 ###### SCSS
-``` SCSS
+
+```SCSS
 @import "~@bornfight/b-accordion/src/scss/style.scss";
 ```
 
-* scss import is not mandatory but following code must be included
+- scss import is not mandatory but following code must be included
+
 ```CSS
 .js-accordion-panel {
     backface-visibility: hidden;
@@ -63,9 +80,11 @@ new Accordion(".js-accordion", {
 
 ##### HTML markup
 
-Mono accordion with single item header as hit area (only one item can be active and only item header will trigger open/close). Main wrapper "js-accordion" need to have "is-mono" class
+Mono accordion with single item header as hit area (only one item can be active and only item header will trigger
+open/close). Main wrapper "js-accordion" need to have "is-mono" class
 
 ```HTML
+
 <div class="js-accordion is-mono">
     <div class="js-accordion-single">
         <div class="js-accordion-header">
@@ -86,7 +105,7 @@ Mono accordion with single item header as hit area (only one item can be active 
             </p>
         </div>
         <div class="js-accordion-panel">
-           <!-- CONTENT -->
+            <!-- CONTENT -->
             ...
         </div>
     </div>
@@ -96,6 +115,7 @@ Mono accordion with single item header as hit area (only one item can be active 
 Single item header as hit area (only header will trigger open/close)
 
 ```HTML
+
 <div class="js-accordion">
     <div class="js-accordion-single">
         <div class="js-accordion-header">
@@ -126,6 +146,7 @@ Single item header as hit area (only header will trigger open/close)
 - Single item full body as hit area (item can be opened and closed wherever you click)
 
 ```HTML
+
 <div class="js-accordion">
     <div class="js-accordion-single js-accordion-header">
         <div>
@@ -155,30 +176,37 @@ Single item header as hit area (only header will trigger open/close)
 
 ### Options
 
-Option | Type | Default | Example | Note
------- | ---- | ------- | ------- | -----------
-jsClass | string | '.js-accordion' | '.my-accordion'
-openingEase | string | 'power4.out' | 'expo.out' | GSAP easing
-closingEase | string | 'power4.in' | 'expo.in' | GSAP easing
-openDuration | number | 0.5 | 0.2 | seconds
-closeDuration | number | 0.3 | 1 | seconds
-openDelay | number | 0 | 0.2 | seconds
-closeDelay | number | 0 | 0.2 | seconds
-     
+| Option          | Type   | Default                 | Example         | Note                                                         |
+| --------------- | ------ | ----------------------- | --------------- | ------------------------------------------------------------ |
+| jsClass         | string | '.js-accordion'         | '.my-accordion' |
+| openingEase     | string | 'power4.out'            | 'expo.out'      | GSAP easing                                                  |
+| closingEase     | string | 'power4.in'             | 'expo.in'       | GSAP easing                                                  |
+| openDuration    | number | 0.5                     | 0.2             | seconds                                                      |
+| closeDuration   | number | 0.3                     | 1               | seconds                                                      |
+| openDelay       | number | 0                       | 0.2             | seconds                                                      |
+| closeDelay      | number | 0                       | 0.2             | seconds                                                      |
+| onOpenStart     | method | (header, content) => {} |                 | returns header and content of current item (header, content) |
+| onCloseStart    | method | (header, content) => {} |                 | returns header and content of current item (header, content) |
+| onOpenComplete  | method | (header, content) => {} |                 | returns header and content of current item (header, content) |
+| onCloseComplete | method | (header, content) => {} |                 | returns header and content of current item (header, content) |
+
 ## 💎 Customization
+
 - use your imagination
 
 ## 🚀 Useful to know
 
-1. any element inside `js-accordion-single` can be trigger for open/close. It just needs to have `js-accordion-header` class
+1. any element inside `js-accordion-single` can be trigger for open/close. It just needs to have `js-accordion-header`
+   class
 2. only one element inside `js-accordion-single` can have `js-accordion-header` class
-   
+
 ### 📦 Contribute
 
-#### Gulp based system 
- - [Gulp](https://gulpjs.com/) 4 used
- - [browsersync](https://browsersync.io/) for live reload
- 
+#### Gulp based system
+
+- [Gulp](https://gulpjs.com/) 4 used
+- [browsersync](https://browsersync.io/) for live reload
+
 ```bash
 npm run dev - dev environent with browsersync
 ```
