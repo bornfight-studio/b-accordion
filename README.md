@@ -43,7 +43,7 @@ new Accordion(".js-accordion", {
     openingEase: "bounce.out",
     closeDuration: 0.3,
     closeDelay: 0,
-    closeingEase: "bounce.in",
+    closingEase: "bounce.in",
 });
 ```
 
