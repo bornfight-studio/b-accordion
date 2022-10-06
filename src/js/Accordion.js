@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.12
+ * b-accordion v 1.0.14
  * Author: Bornfight
  * Repo: https://github.com/bornfight/b-accordion
  *
@@ -107,9 +107,11 @@ export default class Accordion {
             throw new Error("'js-accordion-panel' missing!");
         }
 
-        gsap.set(accordionContent, {
-            height: 0,
-        });
+        if (!accordionHeader.classList.contains("is-opened")) {
+            gsap.set(accordionContent, {
+                height: 0,
+            });
+        }
 
         accordionHeader.addEventListener("click", (ev) => {
             ev.preventDefault();
@@ -131,11 +133,10 @@ export default class Accordion {
      */
     closeAccordion(accordionHeader, accordionContent, accordion) {
         accordionHeader.classList.remove("is-opened");
-        if (accordionHeader.parentNode.classList.contains("js-accordion-single")) {
-            accordionHeader.parentNode.classList.remove("is-opened");
-        }
 
-        gsap.to(accordionContent, {
+        gsap.fromTo(accordionContent, {
+            height: accordionContent.offsetHeight,
+        }, {
             duration: this.closeDuration,
             height: 0,
             delay: this.closeDelay,
@@ -147,6 +148,10 @@ export default class Accordion {
                 this.onCloseComplete(accordionHeader, accordionContent);
             },
         });
+
+        if (accordionHeader.parentNode.classList.contains("js-accordion-single")) {
+            accordionHeader.parentNode.classList.remove("is-opened");
+        }
 
         this.haveActive(accordion);
     }
