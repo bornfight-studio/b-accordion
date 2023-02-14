@@ -53,11 +53,7 @@ export default class Accordion {
     this.accordion = document.querySelectorAll(jsClass);
     if (this.accordion.length > 0) {
       this.accordion.forEach((accordion) => {
-        let mono = false;
-        if (accordion.classList.contains("is-mono")) {
-          mono = true;
-        }
-
+        const mono = accordion.classList.contains("is-mono");
         this.initAccordion(accordion, mono);
       });
     }
