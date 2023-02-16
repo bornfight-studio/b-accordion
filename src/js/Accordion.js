@@ -6,7 +6,7 @@
  * Year: 2020
  */
 
-import gsap from "gsap";
+import SingleAccordionInstance from "./SingleAccordionInstance.js";
 
 export default class Accordion {
   /**
@@ -39,16 +39,18 @@ export default class Accordion {
 
     this.defaults = Object.assign({}, _defaults, options);
 
-    this.openingEase = this.defaults.openingEase;
-    this.closingEase = this.defaults.closingEase;
-    this.openDuration = this.defaults.openDuration;
-    this.closeDuration = this.defaults.closeDuration;
-    this.openDelay = this.defaults.openDelay;
-    this.closeDelay = this.defaults.closeDelay;
-    this.onOpenStart = this.defaults.onOpenStart;
-    this.onCloseStart = this.defaults.onCloseStart;
-    this.onOpenComplete = this.defaults.onOpenComplete;
-    this.onCloseComplete = this.defaults.onCloseComplete;
+    this.props = {
+      openingEase: this.defaults.openingEase,
+      closingEase: this.defaults.closingEase,
+      openDuration: this.defaults.openDuration,
+      closeDuration: this.defaults.closeDuration,
+      openDelay: this.defaults.openDelay,
+      closeDelay: this.defaults.closeDelay,
+      onOpenStart: this.defaults.onOpenStart,
+      onCloseStart: this.defaults.onCloseStart,
+      onOpenComplete: this.defaults.onOpenComplete,
+      onCloseComplete: this.defaults.onCloseComplete,
+    };
 
     this.accordion = document.querySelectorAll(jsClass);
     if (this.accordion.length > 0) {
@@ -73,180 +75,7 @@ export default class Accordion {
     const accordionSingles = accordion.querySelectorAll(".js-accordion-single");
 
     accordionSingles.forEach((accordionSingle) => {
-      this.accordionController(accordionSingle, accordion, mono);
+      new SingleAccordionInstance(accordionSingle, accordion, mono, this.props);
     });
-  }
-
-  /**
-   *
-   * @param {HTMLElement} accordionSingle
-   * @param {HTMLElement} accordion
-   * @param {boolean} mono
-   */
-  accordionController(accordionSingle, accordion, mono) {
-    let accordionHeader = accordionSingle.querySelector(".js-accordion-header");
-
-    if (accordionHeader == null) {
-      accordionHeader = accordionSingle;
-    }
-
-    if (accordionHeader == null) {
-      throw new Error("'js-accordion-header' missing!");
-    }
-
-    const accordionContent = accordionSingle.querySelector(
-      ".js-accordion-panel"
-    );
-
-    if (accordionContent == null) {
-      throw new Error("'js-accordion-panel' missing!");
-    }
-
-    if (!accordionHeader.classList.contains("is-opened")) {
-      gsap.set(accordionContent, {
-        height: 0,
-      });
-    }
-
-    accordionHeader.addEventListener("click", (ev) => {
-      ev.preventDefault();
-
-      if (ev.currentTarget.classList.contains("is-opened")) {
-        this.closeAccordion(ev.currentTarget, accordionContent, accordion);
-        return;
-      }
-
-      this.openAccordion(ev.currentTarget, accordionContent, accordion, mono);
-    });
-  }
-
-  /**
-   *
-   * @param {HTMLElement} accordionHeader
-   * @param {HTMLElement} accordionContent
-   * @param {HTMLElement} accordion
-   */
-  closeAccordion(accordionHeader, accordionContent, accordion) {
-    accordionHeader.classList.remove("is-opened");
-
-    gsap.fromTo(
-      accordionContent,
-      {
-        height: accordionContent.offsetHeight,
-      },
-      {
-        duration: this.closeDuration,
-        height: 0,
-        delay: this.closeDelay,
-        ease: this.closingEase,
-        onStart: () => {
-          this.onCloseStart(accordionHeader, accordionContent);
-        },
-        onComplete: () => {
-          this.onCloseComplete(accordionHeader, accordionContent);
-        },
-      }
-    );
-
-    if (accordionHeader.parentNode.classList.contains("js-accordion-single")) {
-      accordionHeader.parentNode.classList.remove("is-opened");
-    }
-
-    this.haveActive(accordion);
-  }
-
-  /**
-   *
-   * @param {HTMLElement} accordionHeader
-   * @param {HTMLElement} accordionContent
-   * @param {HTMLElement} accordion
-   * @param {boolean} mono
-   */
-  openAccordion(accordionHeader, accordionContent, accordion, mono) {
-    if (mono) {
-      const accordionSingles = accordion.querySelectorAll(
-        ".js-accordion-single"
-      );
-
-      for (let i = 0; i < accordionSingles.length; i++) {
-        const accordionHeaderInactive = accordionSingles[i].querySelector(
-          ".js-accordion-header"
-        );
-        const accordionContentInactive = accordionSingles[i].querySelector(
-          ".js-accordion-panel"
-        );
-
-        if (accordionHeader === accordionHeaderInactive) {
-          continue;
-        }
-
-        accordionHeaderInactive.classList.remove("is-opened");
-        if (
-          accordionHeader.parentNode.classList.contains("js-accordion-single")
-        ) {
-          accordionHeaderInactive.parentNode.classList.remove("is-opened");
-        }
-
-        if (accordionContentInactive.style?.height !== "0px") {
-          gsap.to(accordionContentInactive, {
-            duration: this.closeDuration,
-            height: 0,
-            delay: this.closeDelay,
-            ease: this.closingEase,
-            onStart: () => {
-              this.onCloseStart(accordionHeader, accordionContent);
-            },
-            onComplete: () => {
-              this.haveActive(accordion);
-              this.onCloseComplete(accordionHeader, accordionContent);
-            },
-          });
-        }
-      }
-    }
-
-    accordionHeader.classList.add("is-opened");
-    if (accordionHeader.parentNode.classList.contains("js-accordion-single")) {
-      accordionHeader.parentNode.classList.add("is-opened");
-    }
-    let height = 0;
-
-    gsap.set(accordionContent, {
-      height: "auto",
-      onComplete: () => {
-        height = accordionContent.clientHeight;
-
-        gsap.set(accordionContent, {
-          height: 0,
-          onComplete: () => {
-            gsap.to(accordionContent, {
-              duration: this.openDuration,
-              height: height,
-              ease: this.openingEase,
-              delay: this.openDelay,
-              onStart: () => {
-                this.onOpenStart(accordionHeader, accordionContent);
-              },
-              onComplete: () => {
-                accordionContent.style.height = "auto";
-                this.onOpenComplete(accordionHeader, accordionContent);
-              },
-            });
-          },
-        });
-      },
-    });
-  }
-
-  /**
-   *
-   * @param {HTMLElement} accordion
-   */
-  haveActive(accordion) {
-    if (accordion.querySelectorAll(".is-opened").length > 0) {
-      accordion.classList.add("have-active");
-    } else {
-      accordion.classList.remove("have-active");
-    }
   }
 }

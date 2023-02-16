@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.scss"],"names":[],"mappings":"AAAA;EACE,mCAA2B;UAA3B,2BAA2B;EAC3B,gBAAgB;EAChB,SAAS,EAAA;;AAET;EACE,YAAY,EAAA","file":"style.css","sourcesContent":[".js-accordion-panel {\n  backface-visibility: hidden;\n  overflow: hidden;\n  height: 0;\n\n  .is-opened & {\n    height: auto;\n  }\n}\n"]}
