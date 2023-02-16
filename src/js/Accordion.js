@@ -25,8 +25,8 @@ export default class Accordion {
    */
   constructor(jsClass = ".js-accordion", options = {}) {
     let _defaults = {
-      openingEase: "power4.out",
-      closingEase: "power4.in",
+      openingEase: "power3.out",
+      closingEase: "power2.out",
       openDuration: 0.5,
       closeDuration: 0.3,
       openDelay: 0,
@@ -53,11 +53,7 @@ export default class Accordion {
     this.accordion = document.querySelectorAll(jsClass);
     if (this.accordion.length > 0) {
       this.accordion.forEach((accordion) => {
-        let mono = false;
-        if (accordion.classList.contains("is-mono")) {
-          mono = true;
-        }
-
+        const mono = accordion.classList.contains("is-mono");
         this.initAccordion(accordion, mono);
       });
     }
