@@ -59,7 +59,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "prettier": "^2.0.5",
-    "stylelint": "^13.3.3",
+    "stylelint": "^15.6.0",
     "stylelint-config-prettier": "^8.0.1",
     "stylelint-prettier": "^1.1.2",
     "stylelint-scss": "^3.17.2",
