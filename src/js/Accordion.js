@@ -1,7 +1,7 @@
 /**
  * b-accordion v 1.0.14
  * Author: Bornfight
- * Repo: https://github.com/bornfight/b-accordion
+ * Repo: https://github.com/bornfight-studio/b-accordion
  *
  * Year: 2020
  */

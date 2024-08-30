@@ -2,14 +2,14 @@
 <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight" alt="Bornfight">
 </a>
 
-# b-accordion [[all b- libs](https://github.com/bornfight/b-lib-archive/)]
+# b-accordion [[all b- libs](https://github.com/bornfight-studio/b-lib-archive/)]
 
 > Bornfight frontend lib for accordion type interactions/elements
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight/b-accordion?style=flat-square)
-![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight/b-accordion?style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/bornfight/b-accordion?style=flat-square)
-![GitHub](https://img.shields.io/github/license/bornfight/b-accordion?style=flat-square)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight-studio/b-accordion?style=flat-square)
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight-studio/b-accordion?style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/bornfight-studio/b-accordion?style=flat-square)
+![GitHub](https://img.shields.io/github/license/bornfight-studio/b-accordion?style=flat-square)
 
 ## 📦 Getting Started
 

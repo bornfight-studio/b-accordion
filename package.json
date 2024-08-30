@@ -1,9 +1,13 @@
 {
   "name": "@bornfight/b-accordion",
-  "version": "1.0.15",
-  "description": "Bornfight frontend lib for accordion type elements",
-  "author": "Bornfight FE team",
-  "email": "frontend@bornfight.com",
+  "version": "1.0.16",
+  "description": "Bornfight Studio frontend lib for accordion type elements",
+  "author": {
+    "name": "BORNFIGHT STUDIO®",
+    "email": "hello@bornfight.studio",
+    "url": "https://www.bornfight.studio"
+  },
+  "email": "hello@bornfight.studio",
   "private": false,
   "main": "src/js/Accordion.js",
   "license": "MIT",
@@ -25,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bornfight/b-accordion/"
+    "url": "https://github.com/bornfight-studio/b-accordion/"
   },
   "browserslist": [
     "> 0.5%",
