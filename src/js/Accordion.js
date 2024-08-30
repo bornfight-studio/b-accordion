@@ -1,5 +1,5 @@
 /**
- * b-accordion v 1.0.17
+ * b-accordion v 1.0.18
  * Author: Bornfight Studio
  * Repo: https://github.com/bornfight-studio/b-accordion
  *

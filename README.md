@@ -1,10 +1,10 @@
-<a href="http://www.bornfight.com">
+<a href="https://www.bornfight.studio/">
 <img width="84px" src="https://www.bornfight.com/wp-content/themes/bf/static/ui/BF-sign-dark.svg?" title="Bornfight" alt="Bornfight">
 </a>
 
 # b-accordion [[all b- libs](https://github.com/bornfight-studio/b-lib-archive/)]
 
-> Bornfight frontend lib for accordion type interactions/elements
+> Bornfight Studio frontend lib for accordion type interactions/elements
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/bornfight-studio/b-accordion?style=flat-square)
 ![GitHub package.json dynamic](https://img.shields.io/github/package-json/keywords/bornfight-studio/b-accordion?style=flat-square)
@@ -213,4 +213,4 @@ npm run dev - dev environent with browsersync
 
 ## License
 
-MIT © [Bornfight](https://www.bornfight.com)
+MIT © [Bornfight Studio](https://www.bornfight.studio/)
